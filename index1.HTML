@@ -1,0 +1,70 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colorful Weather Page</title>
+  <style>
+    /* Overall page styling with a vibrant gradient background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Header styling */
+    h1 {
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Button styling with a colorful gradient and hover effect */
+    #showWeatherBtn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(45deg, #ff6b6b, #f06595);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 20px;
+    }
+
+    #showWeatherBtn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Styling for the container holding the iframe */
+    #weather-result {
+      margin-top: 30px;
+      width: 90%;
+      max-width: 1200px;
+      border: 3px solid #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Colorful Weather Display</h1>
+  <button id="showWeatherBtn">Show Weather Page</button>
+  <div id="weather-result"></div>
+
+  <script>
+    document.getElementById("showWeatherBtn").addEventListener("click", () => {
+      const url = "https://openweathermap.org/city/1252948";
+      document.getElementById("weather-result").innerHTML = `<iframe src="${url}" width="100%" height="600px" style="border:none;"></iframe>`;
+    });
+  </script>
+</body>
+</html>
